@@ -1,9 +1,17 @@
 import styles from './card.module.css';
 
-export default function Card({ children }): React.FC < { children } > {
+type CardProps = {
+    children: React.ReactNode,
+    className: string | undefined,
+    bgImage: string
+}
+
+const Card: React.FC<CardProps> = function({ children, className, bgImage }) {
     return (
-        <div className={styles.card}>
+        <div style={{backgroundImage: `url('${bgImage}')`}} className={`${styles.card} ${className}`}>
             {children}
         </div>
     )
 }
+
+export default Card

@@ -1,4 +1,4 @@
-import Main from '../components/main';
+import Main from '../components/Main/main';
 
 import styles from './page.module.css';
 

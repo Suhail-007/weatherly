@@ -3,6 +3,7 @@
 
 :root {
     --primary-bg: hsla(0, 0%, 6%, 1);
+    --primary-clr: #f0ecec;
     
     --br: .5rem;
 }
