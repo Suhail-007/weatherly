@@ -1,0 +1,18 @@
+.header {
+    backdrop-filter: blur(10px);
+    background: var(--primary-bg);
+    padding: 1rem 1.5rem;
+    display: flex;
+    box-shadow: 0 .1rem 10px 0 rgba(255, 255, 255, .2);
+}
+
+.header__icon {
+    width: 10rem;
+    display: flex;
+    height: 5rem;
+}
+
+.header__icon>svg {
+    width: 100% !important;
+    height: 100% !important;
+}
