@@ -2,6 +2,7 @@ import MainContent from './main-content';
 
 import { getRandomNum } from '../../../utils/helper';
 import styles from './main.module.css';
+import Sidebar from '../sidebar';
 
 interface weatherInfo {
     weather: string
@@ -31,11 +32,13 @@ const getPhoto = async function (location: string) {
 }
 
 export default async function Main() {
-    const image = await getPhoto('delhi');
+'use client'
+    const image = await getPhoto('india');
 
     return (
         <section className={styles.section__main}>
             <MainContent bgImage={image} {...weahterInfo} />
+            <Sidebar />
         </section>
     )
 }

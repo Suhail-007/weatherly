@@ -3,8 +3,9 @@
 
 :root {
     --primary-bg: hsla(0, 0%, 6%, 1);
+    --primary-bg-2: rgb(41, 40, 40);
     --primary-clr: #f0ecec;
-    
+
     --br: .5rem;
 }
 
@@ -25,6 +26,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
+    position: relative;
 }
 
 input,
