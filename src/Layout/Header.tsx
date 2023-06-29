@@ -1,5 +1,6 @@
+import Menu from './menu';
+
 import styles from './header.module.css';
-import logo from '../../public/assets/logo.svg';
 
 export default function Header() {
     return (
@@ -11,7 +12,7 @@ export default function Header() {
             </div>
 
             <div>
-                sidebar
+                <Menu />
             </div>
         </header>
     )

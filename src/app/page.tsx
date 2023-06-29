@@ -1,5 +1,5 @@
 import Main from '../components/Main/main';
-import Header from '../Layout/Header';
+import Header from '../Layout/header';
 
 import styles from './page.module.css';
 

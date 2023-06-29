@@ -1,8 +1,11 @@
 .header {
+
     backdrop-filter: blur(10px);
     background: var(--primary-bg);
     padding: 1rem 1.5rem;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 .1rem 10px 0 rgba(255, 255, 255, .2);
 }
 
