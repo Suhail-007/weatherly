@@ -1,9 +1,11 @@
+import { MouseEventHandler } from 'react';
 import styles from './sidebar.module.css';
 
-export default function Sidebar() {
+export default function Sidebar({isActive, closeSidebar}: {isActive: boolean, closeSidebar: {closeSidebar: MouseEventHandler<HTMLButtonElement>}}) {
+
 
     return (
-        <section className={styles.sidebar}>
+        <section className={isActive ? styles.sidebarActive : styles.sidebar}>
             <div className={styles.sidebar_content}>
                 <input type='search' placeholder='Search your city name...' />
                 <button>
@@ -12,6 +14,8 @@ export default function Sidebar() {
                     </svg>
                 </button>
             </div>
+
+            <button onClick={closeSidebar} className={styles.sidebar_closebtn}>Close</button>
         </section>
     )
 }

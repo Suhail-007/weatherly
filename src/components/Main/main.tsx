@@ -1,8 +1,9 @@
 import MainContent from './main-content';
 
-import { getRandomNum } from '../../../utils/helper';
 import styles from './main.module.css';
 import Sidebar from '../sidebar';
+import DaysCard from '../daysCard';
+import { MouseEventHandler } from 'react';
 
 interface weatherInfo {
     weather: string
@@ -20,25 +21,13 @@ const weahterInfo: weatherInfo = {
     wind: '32km/h'
 }
 
-const getPhoto = async function (location: string) {
-    const res = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${location}&client_id=T-wpXqtoeV9q15ndT6aqdpTAWtZbMtCHZTeRj_h0sS8`);
-    const data = await res.json();
-    const results = data.results;
-    const arrayLength = Number(results.length);    
-    const randomNum = getRandomNum(arrayLength);
-    const randomImage = data.results[randomNum].urls.regular;
-
-    return randomImage
-}
-
-export default async function Main() {
-'use client'
-    const image = await getPhoto('india');
+export default function Main({image, isActive, closeSidebar}: {image: string, isActive: boolean, closeSidebar: {closeSidebar: MouseEventHandler<HTMLButtonElement>}}) {
 
     return (
         <section className={styles.section__main}>
             <MainContent bgImage={image} {...weahterInfo} />
-            <Sidebar />
+            <Sidebar closeSidebar={closeSidebar} isActive={isActive} />
+            <DaysCard />
         </section>
     )
 }

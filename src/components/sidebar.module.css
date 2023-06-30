@@ -1,11 +1,16 @@
 .sidebar {
+    display: none;
+}
+
+.sidebarActive {
+    display: block;
     padding: 1rem 1.5rem;
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     background: var(--primary-bg-2);
-    display: none;
+    z-index: 1;
 }
 
 .sidebar_content {
@@ -39,7 +44,7 @@
 
 .sidebar_content>button>svg {
     width: 100%;
-    height:100%;
+    height: 100%;
 
     stroke: var(--primary-clr);
     transform: stroke 300ms ease-in-out;
@@ -51,4 +56,14 @@
 
 .sidebar_content>button:is(:hover, :focus)>svg {
     stroke: #000;
+}
+
+.sidebar_closebtn {
+    color: var(--primary-clr);
+    width: 100%;
+    border: 1px solid var(--primary-clr);
+    border-radius: .6rem;
+    padding-block: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 1.1px;
 }

@@ -1,8 +1,9 @@
+import { MouseEvent } from 'react';
 import Menu from './menu';
 
 import styles from './header.module.css';
 
-export default function Header() {
+export default function Header({ openSidebar }: { openSidebar: (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void }) {
     return (
         <header className={styles.header}>
             <div className={styles.header__icon}>
@@ -12,7 +13,7 @@ export default function Header() {
             </div>
 
             <div>
-                <Menu />
+                <Menu openSidebar={openSidebar} />
             </div>
         </header>
     )
