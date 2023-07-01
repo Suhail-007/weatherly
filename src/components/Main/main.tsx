@@ -1,9 +1,9 @@
+import { MouseEventHandler } from 'react';
 import MainContent from './main-content';
 
 import styles from './main.module.css';
 import Sidebar from '../sidebar';
 import DaysCard from '../daysCard';
-import { MouseEventHandler } from 'react';
 
 interface weatherInfo {
     weather: string
@@ -21,7 +21,8 @@ const weahterInfo: weatherInfo = {
     wind: '32km/h'
 }
 
-export default function Main({image, isActive, closeSidebar}: {image: string, isActive: boolean, closeSidebar: {closeSidebar: MouseEventHandler<HTMLButtonElement>}}) {
+export default function Main({ image, isActive, closeSidebar }: {
+    image: string, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>}) {
 
     return (
         <section className={styles.section__main}>

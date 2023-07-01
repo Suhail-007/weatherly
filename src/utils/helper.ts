@@ -13,8 +13,9 @@ export const getPhoto = async function (location: string) {
         const data = await res.json();
 
         if (data.length === 0 || !res.ok) {
-            throw new Error('No Image found for the current locatin');
+            throw Error('No Image found for the current location');
         }
+
         const results = data.results;
         const arrayLength = Number(results.length);
         const randomNum = getRandomNum(arrayLength);
@@ -22,22 +23,16 @@ export const getPhoto = async function (location: string) {
 
         return randomImage
     } catch (error: any) {
-        // throw new Error(error.message)
-        console.log(error)
+        throw Error(error.message)
     }
 }
 
-export const getLatLong: PositionCallback = function (location) {
-    const { latitude, longitude } = location.coords;
-    lat = latitude;
-    long = longitude;
-}
-
-export const getLocation = async function (lat: number, long: number) {
+export const getLocation = async function ({ lat, long }: { lat: string | undefined | string[], long: string | undefined | string[] }) {
     try {
         const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=839ffab71000480889433546936776a5`);
-        const data = await res.json()
 
+        const data = await res.json()
+        
         return data
 
     } catch (error: any) {

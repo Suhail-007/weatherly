@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import Card from '../../Layout/card';
 import styles from './main-content.module.css';
+import { useEffect } from 'react';
 
 
 interface weatherInfo {
@@ -9,11 +10,13 @@ interface weatherInfo {
     img: string
     city: string
     temperature: string
-    wind: string
+    wind: string,
     bgImage: string
+
 }
 
 const MainContent = function ({ img, city, temperature, wind, weather, bgImage }: weatherInfo) {
+
     return (
         <Card bgImage={bgImage} className={styles.maincontent}>
             <div className={styles.maincontent__info}>
