@@ -12,6 +12,7 @@ export default function Home() {
     const [error, setError] = useState('');
 
     useEffect(() => {
+
         if (navigator.geolocation) {
 
             navigator.geolocation.getCurrentPosition(location => {
@@ -21,9 +22,11 @@ export default function Home() {
                     .then(res => res.json())
                     .then(data => setBgImage(data.bgImage))
                     .catch((err: any) => {
-                        console.error(err.message)
+                        setError(err);
                     })
             })
+        } else {
+           console.log('dfdfd')
         }
     }, []);
 

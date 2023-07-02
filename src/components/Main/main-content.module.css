@@ -4,7 +4,7 @@
     color: var(--primary-clr);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     box-shadow: none !important;
     padding: 1rem 1.5rem;
 }
@@ -13,7 +13,7 @@
     backdrop-filter: blur(2px);
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem 1.5rem;
-    border-radius: .5rem;
+    border-radius: var(--br);
 }
 
 .maincontent__info>h1 {

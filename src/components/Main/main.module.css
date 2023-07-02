@@ -3,3 +3,12 @@
     border-radius: var(--br);
     padding: 1rem;
 }
+
+@media screen and (min-width: 50em) {
+    .section__main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 50vh min-content;
+        gap: 2rem;
+    }
+}

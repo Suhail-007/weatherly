@@ -26,3 +26,9 @@
 .menu_cont:is(:hover, :focus) .thirdrow {
     transform: rotate(45deg) translate(-.8rem, -.8rem);
 }
+
+@media screen and (min-width: 50em) {
+    .menu_cont {
+        display: none;
+    }
+}

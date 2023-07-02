@@ -11,6 +11,7 @@ interface weatherInfo {
     city: string
     temperature: string
     wind: string
+    country: string
 }
 
 const weahterInfo: weatherInfo = {
@@ -18,7 +19,8 @@ const weahterInfo: weatherInfo = {
     weather: 'cloudy',
     temperature: '30 °C',
     city: 'Delhi',
-    wind: '32km/h'
+    wind: '32km/h',
+    country: 'fdd'
 }
 
 export default function Main({ image, isActive, closeSidebar }: {

@@ -51,12 +51,13 @@ const DaysCard = function () {
     });
 
     return (
-        <section className={styles.daysCard_cont}>
+        <section className={styles.daysCard_section}>
             <h2>Upcoming 5 days</h2>
 
             <hr className={styles.hr} />
-
-            {cards}
+            <div className={styles.daysCard_cont}>
+                {cards}
+            </div>
         </section>
     )
 }

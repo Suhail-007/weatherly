@@ -3,7 +3,7 @@ import styles from './card.module.css';
 type CardProps = {
     children: React.ReactNode,
     className: string | undefined,
-    bgImage: string
+    bgImage?: string
 }
 
 const Card: React.FC<CardProps> = function({ children, className, bgImage }) {

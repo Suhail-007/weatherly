@@ -9,7 +9,7 @@ export const getRandomNum = function (maxNum: number) {
 
 export const getPhoto = async function (location: string) {
     try {
-        const res = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${location}&client_id=T-wpXqtoeV9q15ndT6aqdpTAWtZbMtCHZTeRj_h0sS8`);
+        const res = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${location}&orientation=landscape&client_id=T-wpXqtoeV9q15ndT6aqdpTAWtZbMtCHZTeRj_h0sS8`);
         const data = await res.json();
 
         if (data.length === 0 || !res.ok) {

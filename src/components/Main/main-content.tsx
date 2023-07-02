@@ -10,19 +10,19 @@ interface weatherInfo {
     img: string
     city: string
     temperature: string
-    wind: string,
+    wind: string
     bgImage: string
-
+    country: string
 }
 
-const MainContent = function ({ img, city, temperature, wind, weather, bgImage }: weatherInfo) {
+const MainContent = function ({ img, city, temperature, wind, weather, country, bgImage }: weatherInfo) {
 
     return (
         <Card bgImage={bgImage} className={styles.maincontent}>
             <div className={styles.maincontent__info}>
                 <h1>{temperature}</h1>
                 <h2>{weather}</h2>
-                <p>{city}</p>
+                <p>{city}, {country}</p>
                 <p>{wind}</p>
             </div>
             <div className={styles.svg__cont}>
