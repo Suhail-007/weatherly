@@ -6,14 +6,14 @@ export default function Sidebar({isActive, closeSidebar}: {isActive: boolean, cl
 
     return (
         <section className={isActive ? styles.sidebarActive : styles.sidebar}>
-            <div className={styles.sidebar_content}>
+            <form className={styles.sidebar_search_cont}>
                 <input type='search' placeholder='Search city name...' />
                 <button>
                     <svg>
                         <use href='/assets/search.svg#searchicon'></use>
                     </svg>
                 </button>
-            </div>
+            </form>
 
             <button onClick={closeSidebar} className={styles.sidebar_closebtn}>Close</button>
         </section>

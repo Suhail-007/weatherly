@@ -13,48 +13,47 @@
     z-index: 1;
 }
 
-.sidebar_content {
+.sidebar_search_cont {
     display: flex;
     justify-content: flex-end;
     column-gap: 1rem;
     height: 3rem;
 }
 
-.sidebar_content>input {
+.sidebar_search_cont>input {
     padding: 1rem 1.5rem;
     border-radius: .3rem;
     border: none;
     background: var(--primary-clr);
 }
 
-.sidebar_content>input:is(:hover, :focus) {
+.sidebar_search_cont>input:is(:hover, :focus) {
     outline: none;
 }
 
-.sidebar_content>button {
+.sidebar_search_cont>button {
     border-radius: .3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
 
     width: 5rem;
     height: 100%;
 }
 
-.sidebar_content>button>svg {
+.sidebar_search_cont>button>svg {
     width: 100%;
     height: 100%;
-
     stroke: var(--primary-clr);
-    transform: stroke 300ms ease-in-out;
+    transition: stroke 300ms ease-in-out;
 }
 
-.sidebar_content>button:is(:hover, :focus) {
-    background: #fff;
+.sidebar_search_cont>button:is(:hover, :focus) {
+    background-color: #fff;
 }
 
-.sidebar_content>button:is(:hover, :focus)>svg {
+.sidebar_search_cont>button:is(:hover, :focus)>svg {
     stroke: #000;
 }
 
@@ -76,6 +75,14 @@
         background: var(--primary-bg-2);
         height: 100%;
         border-radius: var(--br);
+    }
+
+    .sidebar_search_cont {
+        margin-top: 1rem;
+    }
+
+    .sidebar_search_cont>input {
+       flex-grow:2;
     }
 
     .sidebar_closebtn {

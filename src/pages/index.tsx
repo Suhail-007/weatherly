@@ -5,10 +5,17 @@ import Main from '@/components/Main/main';
 import Header from '../Layout/header';
 import styles from './index.module.css';
 
+type D = {
+    bgImage: string,
+    weatherForcast: {},
+    todayWeather: {},
+    location: {}
+}
+
 
 export default function Home() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
-    const [bgImage, setBgImage] = useState('');
+    const [data, setData] = useState<D>();
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -20,13 +27,13 @@ export default function Home() {
 
                 fetch(`/api/homepage?lat=${latitude}&long=${longitude}`)
                     .then(res => res.json())
-                    .then(data => setBgImage(data.bgImage))
+                    .then(data => setData(data))
                     .catch((err: any) => {
                         setError(err);
                     })
             })
         } else {
-           console.log('dfdfd')
+            console.log('App won\'t work as expected.')
         }
     }, []);
 
@@ -45,7 +52,7 @@ export default function Home() {
         <>
             <Header openSidebar={openSidebar} />
             <main className={styles.main}>
-                <Main closeSidebar={closeSidebar} isActive={isSidebarActive} image={bgImage} />
+                <Main closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
             </main>
         </>
     )

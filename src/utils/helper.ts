@@ -1,5 +1,21 @@
+import type { coords } from "./types";
+
 let lat: number;
 let long: number;
+
+export const getForecast = async function ({ lat, long }: coords) {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=be6740524c0891926c5303c9acd5e7b0&units=metric`);
+    const data = await res.json();
+
+    return data
+}
+
+export const getWeather = async function ({ lat, long }: coords) {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=be6740524c0891926c5303c9acd5e7b0&units=metric`);
+    const data = await res.json();
+
+    return data
+}
 
 //Get a random num between 1 to array length
 export const getRandomNum = function (maxNum: number) {
@@ -27,12 +43,17 @@ export const getPhoto = async function (location: string) {
     }
 }
 
-export const getLocation = async function ({ lat, long }: { lat: string | undefined | string[], long: string | undefined | string[] }) {
+export const getLocation = async function ({ lat, long }: coords) {
     try {
         const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=839ffab71000480889433546936776a5`);
 
-        const data = await res.json()
-        
+        const data = await res.json();
+
+        // if user lives on mars throw error
+        if (data.results.length === 0) {
+            throw new Error('Not found')
+        }
+
         return data
 
     } catch (error: any) {

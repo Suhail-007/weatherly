@@ -24,7 +24,7 @@ const weahterInfo: weatherInfo = {
 }
 
 export default function Main({ image, isActive, closeSidebar }: {
-    image: string, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>}) {
+    image: string | undefined, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>}) {
 
     return (
         <section className={styles.section__main}>

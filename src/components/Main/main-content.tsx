@@ -11,7 +11,7 @@ interface weatherInfo {
     city: string
     temperature: string
     wind: string
-    bgImage: string
+    bgImage: string | undefined
     country: string
 }
 
