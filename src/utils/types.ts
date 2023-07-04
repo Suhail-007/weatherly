@@ -7,7 +7,6 @@ export interface userLocation {
     country: string,
     state: string,
 }
-
 export interface weatherInfo {
     weather: string
     img: string
@@ -16,20 +15,14 @@ export interface weatherInfo {
     wind: string
     country: string
 }
-
 export interface MainContentProps {
-    weather: string
-    img: string
-    city: string
-    temperature: string
-    wind: string
-    country: string
     bgImage: string | undefined
+    data: D | undefined
 }
 
 export interface D {
     bgImage: string,
-    weatherForcast: {},
-    todayWeather: {},
-    location: {}
+    weatherForcast: any
+    todayWeather: any
+    location: any
 }

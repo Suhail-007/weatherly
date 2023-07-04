@@ -21,11 +21,9 @@ export default function Main({ data, image, isActive, closeSidebar }: {
     data: data | undefined
 }) {
 
-    console.log(data)
-
     return (
         <section className={styles.section__main}>
-            <MainContent bgImage={image} {...weahterInfo} />
+            <MainContent data={data} bgImage={image} />
             <Sidebar closeSidebar={closeSidebar} isActive={isActive} />
             <DaysCard />
         </section>

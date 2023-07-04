@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     color: var(--primary-clr);
     background-position: center center;
     background-repeat: no-repeat;
@@ -39,9 +40,14 @@
 }
 
 .maincontent_info>h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 400;
     margin: 0;
     padding: 0;
+    text-transform: capitalize;
+}
+
+.maincontent__desc {
     text-transform: capitalize;
 }
 
