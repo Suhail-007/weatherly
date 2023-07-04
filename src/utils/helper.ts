@@ -45,16 +45,20 @@ export const getPhoto = async function (location: string) {
 
 export const getLocation = async function ({ lat, long }: coords) {
     try {
-        const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=839ffab71000480889433546936776a5`);
+        // const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=839ffab71000480889433546936776a5`);
+        const res = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=${1}&appid=be6740524c0891926c5303c9acd5e7b0`)
 
         const data = await res.json();
 
         // if user lives on mars throw error
-        if (data.results.length === 0) {
+        if (data[0].length === 0 ) {
             throw new Error('Not found')
         }
 
-        return data
+        return {
+            country: data[0].country,
+            state: data[0].state
+        }
 
     } catch (error: any) {
         throw Error(error.message);

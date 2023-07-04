@@ -3,19 +3,13 @@ import { useState, useEffect, MouseEvent, MouseEventHandler } from 'react';
 
 import Main from '@/components/Main/main';
 import Header from '../Layout/header';
+import { D as data } from '@/utils/types';
+
 import styles from './index.module.css';
-
-type D = {
-    bgImage: string,
-    weatherForcast: {},
-    todayWeather: {},
-    location: {}
-}
-
 
 export default function Home() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
-    const [data, setData] = useState<D>();
+    const [data, setData] = useState<data>();
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -28,9 +22,7 @@ export default function Home() {
                 fetch(`/api/homepage?lat=${latitude}&long=${longitude}`)
                     .then(res => res.json())
                     .then(data => setData(data))
-                    .catch((err: any) => {
-                        setError(err);
-                    })
+                    .catch((err: any) => setError(err))
             })
         } else {
             console.log('App won\'t work as expected.')
@@ -52,7 +44,7 @@ export default function Home() {
         <>
             <Header openSidebar={openSidebar} />
             <main className={styles.main}>
-                <Main closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
+                <Main data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
             </main>
         </>
     )

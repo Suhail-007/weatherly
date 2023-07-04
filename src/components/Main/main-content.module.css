@@ -9,7 +9,20 @@
     padding: 1rem 1.5rem;
 }
 
-.maincontent__info {
+.maincontent_loading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-clr);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-shadow: none !important;
+    padding: 1rem 1.5rem;
+    position: relative;
+}
+
+.maincontent_info {
     backdrop-filter: blur(2px);
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem 1.5rem;
@@ -17,7 +30,7 @@
     height: fit-content;
 }
 
-.maincontent__info>h1 {
+.maincontent_info>h1 {
     font-size: 3rem;
     font-weight: 600;
     font-family: 'Ysabeau Infant', sans-serif;
@@ -25,24 +38,40 @@
     padding: 0;
 }
 
-.maincontent__info>h2 {
+.maincontent_info>h2 {
     font-size: 2.5rem;
     margin: 0;
     padding: 0;
     text-transform: capitalize;
 }
 
-.maincontent__info>p {
+.maincontent_info>p {
     font-size: 1.3rem;
 }
 
-.svg__cont {
+.svg_cont {
     position: relative;
     width: 15rem;
     height: 15rem;
 }
 
-.svg__cont>img {
+.svg_cont>img {
     display: block;
     opacity: .8;
+}
+
+.loading_spinner {
+    width: 5rem !important;
+    margin-inline: auto;
+    /* animation: infiniteRotation infinite linear; */
+    animation-name: infiniteRotation;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes infiniteRotation {
+    100% {
+        rotate: -360deg;
+    }
 }

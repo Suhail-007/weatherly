@@ -5,14 +5,7 @@ import styles from './main.module.css';
 import Sidebar from '../sidebar';
 import DaysCard from '../daysCard';
 
-interface weatherInfo {
-    weather: string
-    img: string
-    city: string
-    temperature: string
-    wind: string
-    country: string
-}
+import { weatherInfo, D as data } from '@/utils/types'
 
 const weahterInfo: weatherInfo = {
     img: '/assets/cloudy.svg',
@@ -23,8 +16,12 @@ const weahterInfo: weatherInfo = {
     country: 'fdd'
 }
 
-export default function Main({ image, isActive, closeSidebar }: {
-    image: string | undefined, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>}) {
+export default function Main({ data, image, isActive, closeSidebar }: {
+    image: string | undefined, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>,
+    data: data | undefined
+}) {
+
+    console.log(data)
 
     return (
         <section className={styles.section__main}>

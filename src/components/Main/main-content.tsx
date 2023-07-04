@@ -1,31 +1,37 @@
 import Image from 'next/image'
 
+
 import Card from '../../Layout/card';
+import { MainContentProps } from '@/utils/types';
+
+import loadingSpinner from '../../../public/assets/loading.svg';
 import styles from './main-content.module.css';
-import { useEffect } from 'react';
 
+const MainContent = function ({ img, city, temperature, wind, weather, country, bgImage }: MainContentProps) {
 
-interface weatherInfo {
-    weather: string
-    img: string
-    city: string
-    temperature: string
-    wind: string
-    bgImage: string | undefined
-    country: string
-}
-
-const MainContent = function ({ img, city, temperature, wind, weather, country, bgImage }: weatherInfo) {
+    if (!bgImage) {
+        return (
+            <Card bgImage={bgImage} className={styles.maincontent_loading}>
+                <div className={styles.maincontent_info}>
+                    <h1></h1>
+                    <h2></h2>
+                    <p></p>
+                    <p></p>
+                </div>
+                <Image className={styles.loading_spinner} fill={true} src={loadingSpinner} alt='loading' />
+            </Card>
+        )
+    }
 
     return (
         <Card bgImage={bgImage} className={styles.maincontent}>
-            <div className={styles.maincontent__info}>
+            <div className={styles.maincontent_info}>
                 <h1>{temperature}</h1>
                 <h2>{weather}</h2>
                 <p>{city}, {country}</p>
                 <p>{wind}</p>
             </div>
-            <div className={styles.svg__cont}>
+            <div className={styles.svg_cont}>
                 <Image fill={true} src={img} alt={weather} />
             </div>
         </Card>
