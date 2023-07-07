@@ -64,20 +64,6 @@
 .svg_cont>img {
     display: block;
     opacity: .8;
-}
-
-.loading_spinner {
-    width: 5rem !important;
-    margin-inline: auto;
-    /* animation: infiniteRotation infinite linear; */
-    animation-name: infiniteRotation;
-    animation-duration: 300ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes infiniteRotation {
-    100% {
-        rotate: -360deg;
-    }
+    width: 100%;
+    height: 100%;
 }

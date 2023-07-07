@@ -1,0 +1,12 @@
+.loading_spinner {
+    width: 5rem !important;
+    margin-inline: auto;
+    animation: infiniteRotation infinite linear 300ms;
+}
+
+
+@keyframes infiniteRotation {
+    100% {
+        rotate: -360deg;
+    }
+}

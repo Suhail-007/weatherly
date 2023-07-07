@@ -3,7 +3,10 @@
 }
 
 .sidebarActive {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
     padding: 1rem 1.5rem;
     position: fixed;
     right: 0;
@@ -82,7 +85,7 @@
     }
 
     .sidebar_search_cont>input {
-       flex-grow:2;
+        flex-grow: 2;
     }
 
     .sidebar_closebtn {

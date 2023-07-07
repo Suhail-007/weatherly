@@ -1,11 +1,11 @@
 export interface coords {
-    lat: string | string[] | undefined,
-    long: string | string[] | undefined,
+    lat: string | string[] | undefined
+    long: string | string[] | undefined
 }
 
 export interface userLocation {
-    country: string,
-    state: string,
+    country: string
+    state: string
 }
 export interface weatherInfo {
     weather: string
@@ -22,7 +22,11 @@ export interface MainContentProps {
 
 export interface D {
     bgImage: string,
-    weatherForcast: any
+    weatherForecast: any
     todayWeather: any
     location: any
+}
+
+export type filteredDays = {
+
 }

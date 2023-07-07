@@ -25,7 +25,7 @@ export default function Main({ data, image, isActive, closeSidebar }: {
         <section className={styles.section__main}>
             <MainContent data={data} bgImage={image} />
             <Sidebar closeSidebar={closeSidebar} isActive={isActive} />
-            <DaysCard />
+            <DaysCard data={data} />
         </section>
     )
 }
