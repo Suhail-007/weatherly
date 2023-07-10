@@ -22,3 +22,15 @@ export interface D {
 export type filteredDays = {
 
 }
+
+export interface SidebarContentProps {
+    main: any,
+    clouds: {
+        all: string
+    },
+    wind: {
+        gust: string,
+        speed: string
+    }
+    visibility: string
+}

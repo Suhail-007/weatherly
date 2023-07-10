@@ -6,7 +6,7 @@ export default function Sidebar({ isActive, closeSidebar, data }: { isActive: bo
 
     if (!data) return
 
-    const { clouds, main, sys, wind, visibility } = data;
+    const { clouds, main, wind, visibility } = data;
 
     return (
         <section className={isActive ? styles.sidebarActive : styles.sidebar}>
@@ -19,7 +19,7 @@ export default function Sidebar({ isActive, closeSidebar, data }: { isActive: bo
                 </button>
             </form>
 
-            <SidebarContent visibility={visibility} main={main} clouds={clouds} sys={sys} wind={wind} />
+            <SidebarContent visibility={visibility} main={main} clouds={clouds} wind={wind} />
 
             <button onClick={closeSidebar} className={styles.sidebar_closebtn}>Close</button>
         </section>

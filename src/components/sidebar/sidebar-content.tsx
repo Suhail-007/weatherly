@@ -1,21 +1,9 @@
 import Card from '@/Layout/card';
 
 import styles from './sidebar-content.module.css';
+import { SidebarContentProps } from '@/utils/types'
 
-interface sidebarContentProps {
-    main: any,
-    clouds: {
-        all: string
-    },
-    sys: any,
-    wind: {
-        gust: string,
-        speed: string
-    }
-    visibility: string
-}
-
-export default function SidebarContent({ main, clouds, sys, wind, visibility }: sidebarContentProps) {
+export default function SidebarContent({ main, clouds, wind, visibility }: SidebarContentProps) {
     return (
         <div className={styles.weather_details}>
             <Card className={styles.weather_details_card}>

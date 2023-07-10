@@ -84,7 +84,6 @@ const DaysCard = function ({ data }: { data: D | undefined }) {
                 {cards}
             </div>
         </section>
-
     )
 }
 
