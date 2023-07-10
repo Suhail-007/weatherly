@@ -6,9 +6,6 @@ import { D, filteredDays } from '@/utils/types';
 import Loading from './loader/loading';
 import WeatherIcon from './icon/weatherIcon';
 
-
-const weekDays = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
-
 const getDate = function () {
     const todayDate = new Date()
     const year = todayDate.getFullYear();
@@ -55,6 +52,11 @@ const DaysCard = function ({ data }: { data: D | undefined }) {
 
     const cards = filteredDays?.map((card: any) => {
         const { main, weather, rain, } = card;
+        const date = new Date(card['dt_txt']).toLocaleDateString('en-Us', {
+            weekday: 'short',
+            month: 'long',
+            day: '2-digit'
+        })
 
         return (
             <Card key={uuidv4()} className={styles.daysCard_card}>
@@ -64,7 +66,8 @@ const DaysCard = function ({ data }: { data: D | undefined }) {
                     <p>{weather[0].description}</p>
                 </div>
 
-                <div>
+                <div className={styles.weather_info_icon}>
+                    <h2>{date}</h2>
                     <WeatherIcon weather={weather[0].main} />
                 </div>
             </Card>

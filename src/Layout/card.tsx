@@ -2,7 +2,7 @@ import styles from './card.module.css';
 
 type CardProps = {
     children: React.ReactNode,
-    className: string | undefined,
+    className?: string,
     bgImage?: string
 }
 

@@ -1,0 +1,31 @@
+.weather_details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weather_details_card {
+    padding: 1rem 1.5rem;
+    color: var(--primary-clr);
+    box-shadow: none;
+    background-color: rgba(29, 28, 28, .4);
+    backdrop-filter: blur(8px);
+}
+
+.weather_details_card>p {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+
+}
+
+.weather_details_card>p>span {
+    text-transform: lowercase;
+
+}
+
+@media only screen and (min-width: 40em) {
+    .weather_details {
+        flex-direction: row;
+    }
+}

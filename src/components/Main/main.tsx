@@ -2,19 +2,10 @@ import { MouseEventHandler } from 'react';
 import MainContent from './main-content';
 
 import styles from './main.module.css';
-import Sidebar from '../sidebar';
+import Sidebar from '../sidebar/sidebar';
 import DaysCard from '../daysCard';
 
-import { weatherInfo, D as data } from '@/utils/types'
-
-const weahterInfo: weatherInfo = {
-    img: '/assets/cloudy.svg',
-    weather: 'cloudy',
-    temperature: '30 °C',
-    city: 'Delhi',
-    wind: '32km/h',
-    country: 'fdd'
-}
+import { D as data } from '@/utils/types'
 
 export default function Main({ data, image, isActive, closeSidebar }: {
     image: string | undefined, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>,
@@ -24,7 +15,7 @@ export default function Main({ data, image, isActive, closeSidebar }: {
     return (
         <section className={styles.section__main}>
             <MainContent data={data} bgImage={image} />
-            <Sidebar closeSidebar={closeSidebar} isActive={isActive} />
+            <Sidebar data={data?.todayWeather} closeSidebar={closeSidebar} isActive={isActive} />
             <DaysCard data={data} />
         </section>
     )

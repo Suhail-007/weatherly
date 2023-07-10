@@ -1,8 +1,12 @@
 import { MouseEventHandler } from 'react';
 import styles from './sidebar.module.css';
+import SidebarContent from './sidebar-content';
 
-export default function Sidebar({isActive, closeSidebar}: {isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>}) {
+export default function Sidebar({ isActive, closeSidebar, data }: { isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>, data: any }) {
 
+    if (!data) return
+
+    const { clouds, main, sys, wind, visibility } = data;
 
     return (
         <section className={isActive ? styles.sidebarActive : styles.sidebar}>
@@ -14,6 +18,8 @@ export default function Sidebar({isActive, closeSidebar}: {isActive: boolean, cl
                     </svg>
                 </button>
             </form>
+
+            <SidebarContent visibility={visibility} main={main} clouds={clouds} sys={sys} wind={wind} />
 
             <button onClick={closeSidebar} className={styles.sidebar_closebtn}>Close</button>
         </section>
