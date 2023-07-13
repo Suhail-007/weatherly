@@ -6,6 +6,7 @@ import Loading from '../loader/loading';
 import WeatherIcon from '../icon/weatherIcon';
 
 const MainContent = function ({ data, bgImage }: MainContentProps) {
+
     if (!bgImage) {
         return (
             <Card className={styles.maincontent_loading}>

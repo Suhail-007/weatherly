@@ -1,16 +1,12 @@
-import { MouseEventHandler } from 'react';
 import MainContent from './main-content';
 
 import styles from './main.module.css';
 import Sidebar from '../sidebar/sidebar';
-import DaysCard from '../daysCard';
+import DaysCard from '../days/dayCards';
 
-import { D as data } from '@/utils/types'
+import { MainProps } from '@/utils/types';
 
-export default function Main({ data, image, isActive, closeSidebar }: {
-    image: string | undefined, isActive: boolean, closeSidebar: MouseEventHandler<HTMLButtonElement>,
-    data: data | undefined
-}) {
+export default function Main({ data, image, isActive, closeSidebar }: MainProps) {
 
     return (
         <section className={styles.section__main}>
