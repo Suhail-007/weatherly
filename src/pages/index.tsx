@@ -3,7 +3,7 @@ import { useState, useEffect, MouseEvent, MouseEventHandler } from 'react';
 
 import Main from '@/components/Main/main';
 import Header from '../Layout/header';
-import { D as data } from '@/utils/types';
+import { data } from '@/utils/types';
 
 import styles from './index.module.css';
 
@@ -11,7 +11,6 @@ export default function Home() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
-    const [value, setValue] = useState<string | undefined>();
 
     useEffect(() => {
 
@@ -25,6 +24,8 @@ export default function Home() {
                     .then(data => setData(data))
                     .catch((err: any) => setError(err))
             })
+
+
         } else {
             console.log('App won\'t work as expected.')
         }
@@ -37,7 +38,7 @@ export default function Home() {
         setIsSidebarActive(true);
     }
 
-    const closeSidebar: MouseEventHandler<HTMLButtonElement> = () => {
+    const closeSidebar: MouseEventHandler<HTMLButtonElement>= () => {
         setIsSidebarActive(false);
     }
 
@@ -51,7 +52,7 @@ export default function Home() {
         <>
             <Header openSidebar={openSidebar} />
             <main className={styles.main}>
-                <Main updateData={updateData} data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
+                <Main updateData={updateData} data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} />
             </main>
         </>
     )

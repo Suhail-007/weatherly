@@ -11,9 +11,7 @@ export default function Sidebar({ isActive, closeSidebar, data, updateData }: Si
 
     if (!data) return
 
-    const inputHandler = function (e: ChangeEvent<HTMLInputElement>) {
-        if (e.currentTarget.value.trim() === '') return
-
+    const onChangeHandler = function (e: ChangeEvent<HTMLInputElement | undefined>) {
         setValue(e.currentTarget.value);
     }
 
@@ -24,14 +22,13 @@ export default function Sidebar({ isActive, closeSidebar, data, updateData }: Si
         e.preventDefault();
 
         try {
-            const state = 'london';
-            // console.log(state)
-            const res = await fetch(`/api/search?state=${state}`);
+            //openweatherapi search by name of a city, is not very reliable. i don't have a choice
+            const res = await fetch(`/api/search?state=${value.toLowerCase()}`);
             const data = await res.json();
 
             updateData(data);
             setValue('');
-
+            // closeSidebar()
         } catch (err: any) {
             console.log(err)
         }
@@ -40,7 +37,7 @@ export default function Sidebar({ isActive, closeSidebar, data, updateData }: Si
     return (
         <section className={isActive ? styles.sidebarActive : styles.sidebar}>
             <form onSubmit={searchWeather} className={styles.sidebar_search_cont}>
-                <input value={value} onChange={inputHandler} name="state" type='search' required placeholder='Search state name...' />
+                <input value={value} onChange={onChangeHandler} name="state" type='search' required placeholder='Search state name...' />
                 <button>
                     <svg>
                         <use href='/assets/search.svg#searchicon'></use>

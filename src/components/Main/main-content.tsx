@@ -5,9 +5,8 @@ import styles from './main-content.module.css';
 import Loading from '../loader/loading';
 import WeatherIcon from '../icon/weatherIcon';
 
-const MainContent = function ({ data, bgImage }: MainContentProps) {
-
-    if (!bgImage) {
+const MainContent = function ({ data }: MainContentProps) {
+    if (!data?.bgImage) {
         return (
             <Card className={styles.maincontent_loading}>
                 <div className={styles.maincontent_info}>
@@ -32,7 +31,7 @@ const MainContent = function ({ data, bgImage }: MainContentProps) {
     });
 
     return (
-        <Card bgImage={bgImage} className={styles.maincontent}>
+        <Card bgImage={data?.bgImage} className={styles.maincontent}>
             <div className={styles.maincontent_info}>
                 <h1>{Math.trunc(temp)} °C</h1>
                 <h2>{main}</h2>

@@ -28,7 +28,6 @@ export const getForecastByName = async function (searchQuery: string | undefined
         const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchQuery}&appid=be6740524c0891926c5303c9acd5e7b0&units=metric`);
         const data = await res.json();
 
-
         if (!res.ok) {
             throw new Error('Invalid query, try searching for other city');
         }

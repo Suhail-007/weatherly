@@ -5,14 +5,12 @@ import Sidebar from '../sidebar/sidebar';
 import DaysCard from '../days/dayCards';
 
 import { MainProps } from '@/utils/types';
-import { NextFetchEvent } from 'next/server';
 
-
-export default function Main({ data, image, isActive, closeSidebar, updateData }: MainProps) {
+export default function Main({ data, isActive, closeSidebar, updateData }: MainProps) {
 
     return (
         <section className={styles.section__main}>
-            <MainContent data={data} bgImage={image} />
+            <MainContent data={data} />
             <Sidebar updateData={updateData} data={data?.todayWeather} closeSidebar={closeSidebar} isActive={isActive} />
             <DaysCard data={data} />
         </section>
