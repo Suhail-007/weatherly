@@ -11,6 +11,7 @@ export default function Home() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
+    const [value, setValue] = useState<string | undefined>();
 
     useEffect(() => {
 
@@ -40,11 +41,17 @@ export default function Home() {
         setIsSidebarActive(false);
     }
 
+    const updateData = function (data: data) {
+        setData(data);
+
+        console.log(data)
+    }
+
     return (
         <>
             <Header openSidebar={openSidebar} />
             <main className={styles.main}>
-                <Main data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
+                <Main updateData={updateData} data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} image={data?.bgImage} />
             </main>
         </>
     )

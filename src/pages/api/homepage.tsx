@@ -2,16 +2,14 @@ import { getLocation, getPhoto, getWeather, getForecast } from "@/utils/helper";
 import { userLocation } from "@/utils/types";
 import { NextApiRequest, NextApiResponse } from "next";
 
-let location: userLocation = {
-    country: '',
-    state: '',
-};
-
-let todayWeather;
-let weatherForecast;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     let bgImage;
+    let location: userLocation
+
+    let todayWeather;
+    let weatherForecast;
+
     const { lat, long } = req.query;
 
     try {

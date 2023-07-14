@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     row-gap: .8em;
+    cursor: pointer;
 }
 
 .menu_cont>div {

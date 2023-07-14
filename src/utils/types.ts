@@ -1,4 +1,24 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, MouseEvent } from 'react';
+
+export interface Weather {
+    description: string,
+    main: string,
+}
+
+export interface todayWeather {
+    main: {
+        temp: string,
+        feels_like: string,
+        humidity: string
+    },
+    weather: Weather[],
+    wind: {
+        speed: string,
+        gust: string
+    },
+    visibility: string,
+}
+
 
 export interface coords {
     lat: string | string[] | undefined
@@ -21,6 +41,13 @@ export interface D {
     location: any
 }
 
+export interface SidebarProps {
+    isActive: boolean,
+    closeSidebar: MouseEventHandler<HTMLButtonElement>,
+    data: any,
+    updateData: (data: D) => void
+}
+
 export interface SidebarContentProps {
     main: {
         temp: string,
@@ -41,6 +68,7 @@ export interface MainProps {
     data: D | undefined,
     isActive: boolean;
     closeSidebar: MouseEventHandler<HTMLButtonElement>,
+    updateData: (data: D) => void
 }
 
 export interface filteredDays {
