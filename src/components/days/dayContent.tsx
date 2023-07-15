@@ -9,6 +9,7 @@ import styles from './dayContent.module.css';
 
 
 export default function DayContent({ filteredDays }: { filteredDays: filteredDays[] }) {
+   
     const cards = filteredDays?.map((card) => {
         const { main, weather, } = card;
         const date = new Date(card['dt_txt']).toLocaleDateString('en-Us', {

@@ -12,7 +12,7 @@ export default function Main({ data, isActive, closeSidebar, updateData }: MainP
         <section className={styles.section__main}>
             <MainContent data={data} />
             <Sidebar updateData={updateData} data={data?.todayWeather} closeSidebar={closeSidebar} isActive={isActive} />
-            <DaysCard data={data} />
+            <DaysCard weatherForecast={data?.weatherForecast} />
         </section>
     )
 }

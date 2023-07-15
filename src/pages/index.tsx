@@ -12,7 +12,7 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
 
-    console.log(eee)
+    // console.log(eee)
 
     useEffect(() => {
 
@@ -47,7 +47,6 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
     const updateData = function (data: data) {
         setData(data);
 
-        console.log(data)
     }
 
     return (

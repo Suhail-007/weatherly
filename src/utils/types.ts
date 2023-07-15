@@ -5,6 +5,27 @@ export interface Weather {
     main: string,
 }
 
+export type weatherForecastList = {
+    clouds: {
+        all: string
+    },
+
+    main: {
+        feels_like: string,
+        temp: string,
+        humidity: string
+    },
+    wind: {
+        speed: string,
+        gust: string
+    },
+    weather: Weather[],
+}
+
+export interface weatherForecast {
+    list: weatherForecastList[]
+}
+
 export interface todayWeather extends SidebarContentProps {
     weather: Weather[],
 }
@@ -20,9 +41,28 @@ export interface userLocation {
 }
 export interface data {
     bgImage?: string,
-    weatherForecast: any
-    todayWeather: todayWeather
-    location: userLocation
+    weatherForecast: weatherForecast,
+    todayWeather: todayWeather,
+    location: userLocation,
+}
+
+export type MainProps = {
+    data: data | undefined,
+    isActive: boolean;
+    closeSidebar: () => void,
+    updateData: (data: data) => void
+}
+
+export interface MainContentProps {
+    data: data | undefined
+}
+
+export interface filteredDays {
+    dt_txt: string
+    main: {
+        temp: string
+    }
+    weather: Weather[]
 }
 
 export interface SidebarProps {
@@ -46,23 +86,4 @@ export interface SidebarContentProps {
         speed: string
     }
     visibility: string
-}
-
-export type MainProps = {
-    data: data | undefined,
-    isActive: boolean;
-    closeSidebar: () => void,
-    updateData: (data: data) => void
-}
-
-export interface MainContentProps {
-    data: data | undefined
-}
-
-export interface filteredDays {
-    dt_txt: string
-    main: {
-        temp: string
-    }
-    weather: Weather
 }
