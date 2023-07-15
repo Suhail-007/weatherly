@@ -10,6 +10,7 @@
     color: var(--primary-clr);
     box-shadow: none;
     background-color: rgba(29, 28, 28, .4);
+    border: var(--primary-border);
     backdrop-filter: blur(8px);
 }
 

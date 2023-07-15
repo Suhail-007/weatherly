@@ -4,7 +4,10 @@
 :root {
     --primary-bg: hsla(0, 0%, 6%, 1);
     --primary-bg-2: rgb(41, 40, 40);
-    --primary-clr: #f0ecec;
+    --primary-light-bg-1: #ece9e9;
+    --primary-clr: #ece9e9;
+    --primary-clr-dark: #222;
+    --primary-border:  1px solid #222;
 
     --br: 1rem;
 }
@@ -18,7 +21,7 @@
 /*font-family: 'Ysabeau Infant', sans-serif;*/
 
 html {
-    /*1rem === 10pc */
+    /*1rem === 10px*/
     font-size: 62.5%;
 }
 
@@ -38,3 +41,9 @@ button {
     border: none;
     background: none;
 }
+
+@media only screen and (200 <= width <= 500) {
+    html {
+        font-size: 50%;
+    }
+} 

@@ -2,7 +2,7 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { useState, useEffect, MouseEvent } from 'react';
 
 import Main from '@/components/Main/main';
-import Header from '../Layout/header';
+import Header from '@/Layout/header';
 import { data } from '@/utils/types';
 
 import styles from './index.module.css';
@@ -12,7 +12,6 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
 
-    // console.log(eee)
 
     useEffect(() => {
 
@@ -25,9 +24,7 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
                     .then(res => res.json())
                     .then(data => setData(data))
                     .catch((err: any) => setError(err))
-            })
-
-
+            });
         } else {
             console.log('App won\'t work as expected.')
         }

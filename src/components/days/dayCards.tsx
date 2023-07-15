@@ -25,8 +25,6 @@ const DaysCard = function ({ weatherForecast }: { weatherForecast: weatherForeca
         let currDate = todayDate.getDate();
         let currMonth = todayDate.getMonth();
 
-        console.log(weatherForecast)
-
         weatherForecast?.list.forEach((day: any, index: number) => {
 
             const sliceDate: string = day['dt_txt'].slice(0, 10);
