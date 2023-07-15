@@ -1,13 +1,12 @@
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { useState, useEffect, MouseEvent } from 'react';
 
 import Main from '@/components/Main/main';
-import Header from '@/Layout/header';
+import Header from '../Layout/Header';
 import { data } from '@/utils/types';
 
 import styles from './index.module.css';
 
-export default function Home({ eee }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
@@ -54,17 +53,4 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
             </main>
         </>
     )
-}
-
-type Repo = {
-    eee: string
-}
-
-export const getServerSideProps: GetServerSideProps = async function ({ req, res }) {
-
-    return {
-        props: {
-            eee: 'what'
-        }
-    }
 }
