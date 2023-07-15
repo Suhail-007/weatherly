@@ -27,7 +27,7 @@ export interface data {
 
 export interface SidebarProps {
     isActive: boolean,
-    closeSidebar: MouseEventHandler<HTMLButtonElement>,
+    closeSidebar: () => void,
     data: todayWeather | undefined,
     updateData: (data: data) => void
 }
@@ -51,7 +51,7 @@ export interface SidebarContentProps {
 export type MainProps = {
     data: data | undefined,
     isActive: boolean;
-    closeSidebar: MouseEventHandler<HTMLButtonElement>,
+    closeSidebar: () => void,
     updateData: (data: data) => void
 }
 

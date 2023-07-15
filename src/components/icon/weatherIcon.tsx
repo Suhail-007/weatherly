@@ -6,6 +6,7 @@ export default function WeatherIcon({ weather }: { weather: string }) {
 
     if (weatherCondition === 'clouds') icon = '/assets/cloudy.svg';
     if (weatherCondition === 'rain') icon = '/assets/rainy.svg';
+    if (weatherCondition === 'mist') icon = '/assets/mist.svg';
 
     return <Image src={icon} alt={weatherCondition} width={100} height={100} />
 }

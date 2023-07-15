@@ -5,7 +5,7 @@
     color: var(--primary-clr);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 120%;
     box-shadow: none !important;
     padding: 1rem 1.5rem;
 }
@@ -30,6 +30,7 @@
     padding: 1rem 1.5rem;
     border-radius: var(--br);
     height: fit-content;
+    border: .5px solid rgba(255, 255, 255, .2);
     box-shadow: .3rem .3rem .5rem 0 rgba(0, 0, 0, .3);
 }
 
@@ -70,6 +71,7 @@
     backdrop-filter: blur(4px);
     background: rgba(0, 0, 0, 0.2);
     box-shadow: .3rem .3rem .5rem 0 rgba(0, 0, 0, .3);
+    border: .5px solid rgba(255, 255, 255, .2);
     border-radius: var(--br);
     height: fit-content;
     font-family: 'Ysabeau Infant', sans-serif;

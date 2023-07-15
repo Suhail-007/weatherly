@@ -20,6 +20,8 @@ const MainContent = function ({ data }: MainContentProps) {
         )
     }
 
+    if (!data) return
+
     const { state, country } = data?.location;
     const { temp } = data?.todayWeather.main;
     const { description, main } = data?.todayWeather.weather[0];

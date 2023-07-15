@@ -1,5 +1,5 @@
-
-import { useState, useEffect, MouseEvent, MouseEventHandler } from 'react';
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import { useState, useEffect, MouseEvent } from 'react';
 
 import Main from '@/components/Main/main';
 import Header from '../Layout/header';
@@ -7,10 +7,12 @@ import { data } from '@/utils/types';
 
 import styles from './index.module.css';
 
-export default function Home() {
+export default function Home({ eee }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
+
+    console.log(eee)
 
     useEffect(() => {
 
@@ -38,7 +40,7 @@ export default function Home() {
         setIsSidebarActive(true);
     }
 
-    const closeSidebar: MouseEventHandler<HTMLButtonElement>= () => {
+    const closeSidebar: () => void = () => {
         setIsSidebarActive(false);
     }
 
@@ -56,4 +58,17 @@ export default function Home() {
             </main>
         </>
     )
+}
+
+type Repo = {
+    eee: string
+}
+
+export const getServerSideProps: GetServerSideProps = async function ({ req, res }) {
+
+    return {
+        props: {
+            eee: 'what'
+        }
+    }
 }

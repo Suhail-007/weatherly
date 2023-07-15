@@ -28,7 +28,7 @@ export default function Sidebar({ isActive, closeSidebar, data, updateData }: Si
 
             updateData(data);
             setValue('');
-            // closeSidebar()
+            closeSidebar();
         } catch (err: any) {
             console.log(err)
         }
@@ -47,7 +47,7 @@ export default function Sidebar({ isActive, closeSidebar, data, updateData }: Si
 
             <SidebarContent visibility={visibility} main={main} clouds={clouds} wind={wind} />
 
-            <button onClick={closeSidebar} className={styles.sidebar_closebtn}>Close</button>
+            <button onClick={() => closeSidebar()} className={styles.sidebar_closebtn}>Close</button>
         </section>
     )
 }

@@ -57,7 +57,9 @@ export const getWeatherByName = async function (searchQuery: string | undefined 
 
 export const getPhoto = async function (location: string | string[] | undefined) {
     try {
-        const res = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${location}&orientation=landscape&client_id=T-wpXqtoeV9q15ndT6aqdpTAWtZbMtCHZTeRj_h0sS8`);
+        const randomPage = Math.floor(Math.random() * 20);
+        
+        const res = await fetch(`https://api.unsplash.com/search/photos?page=${randomPage}&query=${location}&orientation=landscape&client_id=T-wpXqtoeV9q15ndT6aqdpTAWtZbMtCHZTeRj_h0sS8`);
         const data = await res.json();
 
         if (data.length === 0 || !res.ok) {
