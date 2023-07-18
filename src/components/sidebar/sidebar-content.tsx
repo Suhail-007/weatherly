@@ -7,18 +7,18 @@ export default function SidebarContent({ main, clouds, wind, visibility }: Sideb
     return (
         <div className={styles.weather_details}>
             <Card className={styles.weather_details_card}>
-                <p>temp : <span>{main.temp} °C</span></p>
-                <p>feels like : <span>{main['feels_like']} °C</span></p>
-                <p>humidity : <span>{main.humidity}%</span></p>
+                <p>temp : <span>{main.temp} </span>°C</p>
+                <p>feels like : <span>{main['feels_like']} </span>°C</p>
             </Card>
-            <Card className={styles.weather_details_card}>
+            <Card className={`${styles.weather_details_card} ${styles.weather_hide}`}>
                 <p>clouds : <span>{clouds.all} %</span></p>
             </Card>
-            <Card className={styles.weather_details_card}>
+            <Card className={`${styles.weather_details_card} ${styles.weather_hide}`}>
                 <p>Gust : <span>{wind.gust} m/s</span></p>
                 <p>Speed : <span>{wind.speed} m/s</span></p>
             </Card>
             <Card className={styles.weather_details_card}>
+                <p>humidity : <span>{main.humidity}%</span></p>
                 <p>visibility : <span> {visibility} km</span></p>
             </Card>
         </div>

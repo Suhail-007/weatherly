@@ -1,4 +1,6 @@
 .main {
     background: var(--primary-bg);
     padding: 1rem;
+    min-width: 100vw;
+    min-height: 100vh;
 }

@@ -1,5 +1,5 @@
 .weather_details {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -12,21 +12,46 @@
     background-color: rgba(29, 28, 28, .4);
     border: var(--primary-border);
     backdrop-filter: blur(8px);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
 }
 
 .weather_details_card>p {
     font-size: 1.4rem;
     text-transform: capitalize;
-
+    margin: 0;
 }
 
 .weather_details_card>p>span {
     text-transform: lowercase;
+    font-size: 1.4rem;
 
 }
 
-@media only screen and (min-width: 40em) {
+@media only screen and (max-width: 50em) and (min-width: 17.6em) {
+    .weather_details_card {
+        display: block;
+    }
+
+    .weather_details_card>p {
+        margin-block: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 64em) and (min-width: 50em) {
+
     .weather_details {
-        flex-direction: row;
+        margin-top: 2rem;
+    }
+
+    .weather_details_card>p {
+        font-size: 1.2rem;
+    }
+
+    .weather_details_card>p>span {
+        font-size: 1.2rem;
     }
 }

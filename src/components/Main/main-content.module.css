@@ -88,8 +88,26 @@
     height: 70%;
 }
 
-/* @media only screen  and (30em <= width <= 58.75em) {
+@media only screen and (max-width: 25em) {
     .maincontent {
-        background-position: 100%;
+        flex-direction: column;
+        row-gap: 1rem;
+        background-size: cover;
     }
-} */
+
+    .maincontent_info {
+        width: 100%;
+    }
+
+    .svg_cont {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
+
+    .svg_cont>img {
+        width: 35%;
+        height: 35%;
+    }
+}
