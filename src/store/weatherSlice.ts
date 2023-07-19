@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AppState } from './store';
 import { HYDRATE } from 'next-redux-wrapper';
 
 export interface WeatherSlice {
@@ -20,8 +19,6 @@ export const weatherSlice = createSlice({
         }
     },
 
-
-
     //special reducer for hydrating the state, Only for nextjs
     extraReducers: {
         [HYDRATE]: (state, action) => {
@@ -35,5 +32,4 @@ export const weatherSlice = createSlice({
 })
 
 export const weatherActions = weatherSlice.actions;
-// export const selectWeatherState = (state: AppState) => state.weather.weather  
 export default weatherSlice.reducer;

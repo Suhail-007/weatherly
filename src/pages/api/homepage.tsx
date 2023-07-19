@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        // get a random photo of somewhere of the country from unsplash
+        // get a random photo of state from unsplash
         bgImage = await getPhoto(location.state);
 
     } catch (err: any) {

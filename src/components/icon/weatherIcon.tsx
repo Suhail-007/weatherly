@@ -1,12 +1,43 @@
 import Image from 'next/image';
 
+interface weatherCondition {
+    weather: string,
+    icon: string
+}
+
+const weatherCondition: weatherCondition[] = [
+    {
+        weather: 'clouds',
+        icon: '/assets/cloudy.svg'
+    },
+    {
+        weather: 'rain',
+        icon: '/assets/rainy.svg'
+    },
+    {
+        weather: 'haze',
+        icon: '/assets/haze.svg'
+    },
+    {
+        weather: 'drizzle',
+        icon: '/assets/drizzle.svg'
+    }
+]
+
 export default function WeatherIcon({ weather }: { weather: string }) {
-    let icon = '';
-    const weatherCondition = weather.toLocaleLowerCase();
+    const weatherLC = weather.toLocaleLowerCase();
 
-    if (weatherCondition === 'clouds') icon = '/assets/cloudy.svg';
-    if (weatherCondition === 'rain') icon = '/assets/rainy.svg';
-    if (weatherCondition === 'mist') icon = '/assets/mist.svg';
+    const weatherConditionArr = weatherCondition.filter(condition => condition.weather === weatherLC);
 
-    return <Image src={icon} alt={weatherCondition} width={100} height={100} />
+    return (
+        <>
+            {weatherConditionArr.length > 0 && <Image
+                src={weatherConditionArr[0].icon || ''}
+                alt={weatherConditionArr[0].weather || 'weather'}
+                width={100}
+                height={100}
+            />
+            }
+        </>
+    )
 }

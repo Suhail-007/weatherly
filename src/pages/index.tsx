@@ -6,8 +6,10 @@ import Header from '../Layout/Header';
 import { data } from '@/utils/types';
 
 import styles from './index.module.css';
+import { wrapper } from '../store/store';
+import { weatherActions } from '@/store/weatherSlice'
 
-export default function Home({ eee }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ weather }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
@@ -55,15 +57,14 @@ export default function Home({ eee }: InferGetServerSidePropsType<typeof getServ
     )
 }
 
-type Repo = {
-    eee: string
-}
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
 
-export const getServerSideProps: GetServerSideProps = async function () {
+    store.dispatch(weatherActions.setWeather());
+    const i = store.getState()
 
     return {
         props: {
-            eee: 'what'
+            weather: i.weather
         }
     }
-}
+})
