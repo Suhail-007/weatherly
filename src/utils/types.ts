@@ -48,8 +48,6 @@ export interface data {
 
 export type MainProps = {
     data: data | undefined,
-    isActive: boolean;
-    closeSidebar: () => void,
     updateData: (data: data) => void
 }
 
@@ -66,8 +64,6 @@ export interface filteredDays {
 }
 
 export interface SidebarProps {
-    isActive: boolean,
-    closeSidebar: () => void,
     data: todayWeather | undefined,
     updateData: (data: data) => void
 }

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { useState, useEffect, MouseEvent } from 'react';
 
@@ -7,10 +8,8 @@ import { data } from '@/utils/types';
 
 import styles from './index.module.css';
 import { wrapper } from '../store/store';
-import { weatherActions } from '@/store/weatherSlice'
 
 export default function Home({ weather }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const [isSidebarActive, setIsSidebarActive] = useState(false);
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
 
@@ -31,27 +30,18 @@ export default function Home({ weather }: InferGetServerSidePropsType<typeof get
         }
     }, []);
 
-    const openSidebar = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-        const parentId = e.currentTarget.closest('#sidebar')?.id;
-
-        if (parentId !== 'sidebar') return
-        setIsSidebarActive(true);
-    }
-
-    const closeSidebar: () => void = () => {
-        setIsSidebarActive(false);
-    }
-
     const updateData = function (data: data) {
         setData(data);
-
     }
 
     return (
         <>
-            <Header openSidebar={openSidebar} />
+            <Head>
+                <title>Weatherly</title>
+            </Head>
+            <Header />
             <main className={styles.main}>
-                <Main updateData={updateData} data={data} closeSidebar={closeSidebar} isActive={isSidebarActive} />
+                <Main updateData={updateData} data={data} />
             </main>
         </>
     )
@@ -59,12 +49,9 @@ export default function Home({ weather }: InferGetServerSidePropsType<typeof get
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
 
-    store.dispatch(weatherActions.setWeather());
-    const i = store.getState()
-
     return {
         props: {
-            weather: i.weather
+
         }
     }
 })

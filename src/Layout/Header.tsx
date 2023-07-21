@@ -1,10 +1,25 @@
 import { MouseEvent } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../store/store';
+import { openSidebar } from '../store/weatherSlice';
+
 import Menu from './menu';
 
 import styles from './header.module.css';
 
-export default function Header({ openSidebar }: {openSidebar: (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => void}  ) {
-   
+export default function Header() {
+
+    const { isSidebarActive } = useAppSelector(state => state.weather);
+    const dispatch = useDispatch()
+
+    const onClickHandler = function (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) {
+        const parentId = e.currentTarget.closest('#sidebar')?.id;
+
+        if (parentId !== 'sidebar') return
+        dispatch(openSidebar())
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.header__icon}>
@@ -14,7 +29,7 @@ export default function Header({ openSidebar }: {openSidebar: (e: MouseEvent<HTM
             </div>
 
             <div>
-                <Menu openSidebar={openSidebar} />
+                <Menu openSidebar={onClickHandler} />
             </div>
         </header>
     )

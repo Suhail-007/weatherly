@@ -2,20 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
 export interface WeatherSlice {
-    weather: boolean,
+    isSidebarActive: boolean,
 }
 
-const initialState: WeatherSlice = {
-    weather: true
-}
+const initialState = {
+    isSidebarActive: false,
+} as WeatherSlice
 
 export const weatherSlice = createSlice({
     name: "weather",
     initialState,
+
     reducers: {
         //actions 
-        setWeather(state) {
-            state.weather = false;
+        openSidebar: (state) => {
+            state.isSidebarActive = true;
+        },
+
+        closeSidebar: (state) => {
+            state.isSidebarActive = false;
         }
     },
 
@@ -28,8 +33,7 @@ export const weatherSlice = createSlice({
             }
         }
     }
-
 })
 
-export const weatherActions = weatherSlice.actions;
+export const { openSidebar, closeSidebar } = weatherSlice.actions;
 export default weatherSlice.reducer;
