@@ -28,6 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         res.status(200).json({ location, todayWeather, weatherForecast, bgImage })
     } catch (err: any) {
-        res.status(204).json({ message: err })
+        res.status(400).json({ message: err.message });
     }
 }

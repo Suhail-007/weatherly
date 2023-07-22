@@ -8,23 +8,23 @@ interface weatherCondition {
 const weatherCondition: weatherCondition[] = [
     {
         weather: 'clouds',
-        icon: '/assets/cloudy.svg'
+        icon: '/assets/weatherIcons/cloudy.svg'
     },
     {
         weather: 'rain',
-        icon: '/assets/rainy.svg'
+        icon: '/assets/weatherIcons/rainy.svg'
     },
     {
         weather: 'haze',
-        icon: '/assets/haze.svg'
+        icon: '/assets/weatherIcons/haze.svg'
     },
     {
         weather: 'mist',
-        icon: '/assets/haze.svg'
+        icon: '/assets/weatherIcons/haze.svg'
     },
     {
         weather: 'drizzle',
-        icon: '/assets/drizzle.svg'
+        icon: '/assets/weatherIcons/drizzle.svg'
     }
 ]
 

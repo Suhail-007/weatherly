@@ -15,10 +15,11 @@ export type AppStore = ReturnType<typeof store>
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action>;
 export type RootState = ReturnType<AppStore['getState']>;
 export const wrapper = createWrapper<AppStore>(store);
+type AppDispatch = AppStore['dispatch']
 
 //Cutsom HOOKS
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-export const useAppDispatch = useDispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 
 export default store

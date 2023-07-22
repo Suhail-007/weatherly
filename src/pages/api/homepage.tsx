@@ -24,8 +24,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         todayWeather = results[1].value;
         weatherForecast = results[2].value;
     } catch (err: any) {
-        //204 No content
-        res.status(204).send(err.message);
+        // Bad request
+        res.status(400).json({ message: err.message });
         return
     }
 
@@ -34,8 +34,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         bgImage = await getPhoto(location.state);
 
     } catch (err: any) {
-        //204 no content found
-        res.status(204).send(err.message);
+        // Bad request
+        res.status(400).json({ message: err.message });
         return
     }
 

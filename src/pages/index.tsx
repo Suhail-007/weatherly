@@ -1,17 +1,19 @@
 import Head from 'next/head';
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import { useState, useEffect, MouseEvent } from 'react';
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+import { useState, useEffect } from 'react';
 
 import Main from '@/components/Main/main';
 import Header from '../Layout/Header';
 import { data } from '@/utils/types';
-
-import styles from './index.module.css';
 import { wrapper } from '../store/store';
 
-export default function Home({ weather }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+import styles from './index.module.css';
+
+export default function Home({ initialState
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [data, setData] = useState<data>();
     const [error, setError] = useState('');
+
 
     useEffect(() => {
 
@@ -47,11 +49,14 @@ export default function Home({ weather }: InferGetServerSidePropsType<typeof get
     )
 }
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async ({ req }) => {
+    const requestIp = require('request-ip');
+
+    const ip = requestIp.getClientIp(req);
 
     return {
         props: {
-
+            
         }
     }
 })
